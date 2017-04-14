@@ -12,7 +12,8 @@
         "IPv6_rate": "Rate of IPv6 visits",
         "IPProtocol": "IP Protocol",
         "Evolution": "Evolution",
-        "IPv6Usage": "IPv6 Usage"
+        "IPv6Usage": "IPv6 Usage",
         "IPv6Evolution": "IPv6 Evolution",
+        "IPVersion": "IP Version"
     }
 }
