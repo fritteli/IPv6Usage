@@ -52,7 +52,7 @@ class Controller extends \Piwik\Plugin\Controller
         );
 
         $view = $this->getLastUnitGraphAcrossPlugins($this->pluginName, __FUNCTION__, $columns,
-            $selectableColumns, $documentation, "IPv6Usage.get");
+            $selectableColumns, $documentation, 'IPv6Usage.get');
         $view->config->translations['IPv6Usage_IPv4'] = \Piwik\Piwik::translate('IPv6Usage_IPv4');
         $view->config->translations['IPv6Usage_IPv6'] = \Piwik\Piwik::translate('IPv6Usage_IPv6');
         $view->config->translations['IPv6Usage_Teredo'] = \Piwik\Piwik::translate('IPv6Usage_Teredo');
@@ -69,6 +69,8 @@ class Controller extends \Piwik\Plugin\Controller
         $view->config->show_exclude_low_population = false;
         $view->config->show_offset_information = false;
         $view->config->show_insights = false;
+        // row evolution throws an error, so disable it for now
+        $view->config->disable_row_evolution = true;
 
         $view->requestConfig->filter_sort_column = 'label';
         $view->requestConfig->filter_sort_order = 'asc';
