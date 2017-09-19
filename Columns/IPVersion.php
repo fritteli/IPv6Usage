@@ -92,7 +92,7 @@ class IPVersion extends VisitDimension
         return $protocol;
     }
 
-	private function reverseIPv6Nibbles($addr)
+    private function reverseIPv6Nibbles($addr)
     {
         #reverse nibbles by Alnitak on http://stackoverflow.com/questions/6619682/convert-ipv6-to-nibble-format-for-ptr-records
         $unpack = unpack('H*hex', $addr);
