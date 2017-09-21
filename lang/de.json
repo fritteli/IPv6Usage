@@ -1,13 +1,19 @@
 {
     "IPv6Usage": {
         "PluginDescription": "IPv6 Usage: Dieses Plugin zeigt die Anzahl der Besuche durch IPv4 und IPv6",
-        "ProtocolUsageEvolution": "IP Protokoll Entwicklung",
-        "WidgetProtocolDescription": "IP Protokoll nach Version",
+        "ProtocolUsageEvolution": "IP-Protokoll-Entwicklung",
+        "WidgetDescription": "",
+        "WidgetProtocolDescription": "IP-Protokoll nach Version",
         "IPv4": "IPv4",
         "IPv6": "IPv6",
-        "IPv4_rate": "Anzahl von IPv4 Besuchern",
-        "IPv6_rate": "Anzahl von IPv6 Besuchern",
-        "IPProtocol": "IP Protokoll",
-        "Evolution": "Evolution"
+        "Teredo": "Teredo-Tunnel",
+        "Tun6to4": "6to4-Tunnel",
+        "IPv4_rate": "Anzahl von IPv4-Besuchern",
+        "IPv6_rate": "Anzahl von IPv6-Besuchern",
+        "IPProtocol": "IP-Protokoll",
+        "Evolution": "Entwicklung",
+        "IPv6Usage": "IPv6-Benutzung",
+        "IPv6Evolution": "IPv6-Entwicklung",
+        "IPVersion": "IP-Version"
     }
 }

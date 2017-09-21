@@ -27,15 +27,15 @@ class API extends \Piwik\Plugin\API
     public function getVisitsByProtocol($idSite, $period, $date)
     {
         \Piwik\Piwik::checkUserHasViewAccess($idSite);
-        $archive = \Piwik\Archive::build($idSite, $period, $date);
-        $ipv4 = $archive->getNumeric('IPv6Usage_IPv4');
-
         $dataTable = new \Piwik\DataTable();
+        $archive = \Piwik\Archive::build($idSite, $period, $date);
+
+        $ipv4 = $archive->getNumeric('IPv6Usage_IPv4');
 
         if ($ipv4) {
             $newRow = new \Piwik\DataTable\Row();
             $newRow->setColumns(array(
-                'label' => 'IPv4',
+                'label' => \Piwik\Piwik::translate('IPv6Usage_IPv4'),
                 'nb_visits' => $ipv4
             ));
             $dataTable->addRow($newRow);
@@ -46,7 +46,7 @@ class API extends \Piwik\Plugin\API
         if ($ipv6) {
             $newRow = new \Piwik\DataTable\Row();
             $newRow->setColumns(array(
-                'label' => 'IPv6',
+                'label' => \Piwik\Piwik::translate('IPv6Usage_IPv6'),
                 'nb_visits' => $ipv6
             ));
             $dataTable->addRow($newRow);
@@ -56,7 +56,7 @@ class API extends \Piwik\Plugin\API
         if ($teredo) {
             $newRow = new \Piwik\DataTable\Row();
             $newRow->setColumns(array(
-                'label' => 'Teredo',
+                'label' => \Piwik\Piwik::translate('IPv6Usage_Teredo'),
                 'nb_visits' => $teredo
             ));
             $dataTable->addRow($newRow);
@@ -66,7 +66,7 @@ class API extends \Piwik\Plugin\API
         if ($tun6to4) {
             $newRow = new \Piwik\DataTable\Row();
             $newRow->setColumns(array(
-                'label' => 'Tun6to4',
+                'label' => \Piwik\Piwik::translate('IPv6Usage_Tun6to4'),
                 'nb_visits' => $tun6to4
             ));
             $dataTable->addRow($newRow);

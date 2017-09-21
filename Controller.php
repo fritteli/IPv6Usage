@@ -52,7 +52,11 @@ class Controller extends \Piwik\Plugin\Controller
         );
 
         $view = $this->getLastUnitGraphAcrossPlugins($this->pluginName, __FUNCTION__, $columns,
-            $selectableColumns, $documentation, "IPv6Usage.get");
+            $selectableColumns, $documentation, 'IPv6Usage.get');
+        $view->config->translations['IPv6Usage_IPv4'] = \Piwik\Piwik::translate('IPv6Usage_IPv4');
+        $view->config->translations['IPv6Usage_IPv6'] = \Piwik\Piwik::translate('IPv6Usage_IPv6');
+        $view->config->translations['IPv6Usage_Teredo'] = \Piwik\Piwik::translate('IPv6Usage_Teredo');
+        $view->config->translations['IPv6Usage_Tun6to4'] = \Piwik\Piwik::translate('IPv6Usage_Tun6to4');
         return $this->renderView($view, $fetch);
     }
 
@@ -60,14 +64,17 @@ class Controller extends \Piwik\Plugin\Controller
     {
         $view = \Piwik\ViewDataTable\Factory::build('graphPie', 'IPv6Usage.getVisitsByProtocol', 'IPv6Usage.getIPv6UsageGraph');
 
-        $view->translations['label'] = \Piwik\Piwik::translate('IPv6Usage_IPProtocol');
-        $view->filter_sort_column = 'label';
-        $view->filter_sort_order = 'asc';
-        $view->filter_limit = 2;
+        $view->config->translations['label'] = \Piwik\Piwik::translate('IPv6Usage_IPProtocol');
+        $view->config->show_search = false;
+        $view->config->show_exclude_low_population = false;
+        $view->config->show_offset_information = false;
+        $view->config->show_insights = false;
+        // row evolution throws an error, so disable it for now
+        $view->config->disable_row_evolution = true;
 
-        $view->show_search = false;
-        $view->show_exclude_low_population = false;
-        $view->show_offset_information = false;
+        $view->requestConfig->filter_sort_column = 'label';
+        $view->requestConfig->filter_sort_order = 'asc';
+        $view->requestConfig->filter_limit = 2;
 
         return $this->renderView($view, $fetch);
     }
